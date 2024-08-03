@@ -1,0 +1,1 @@
+start /d"D:\1.nox\Nox\bin\" Nox.exe -clone:Nox_1

@@ -1,0 +1,56 @@
+异常记录：Sat Aug  3 14:47:15 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 13, in Auto_Run
+    raise Exception('发生异常错误信息')
+Exception: 发生异常错误信息
+___________________________________________________
+
+异常记录：Sat Aug  3 17:29:06 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 53, in Auto_Run
+    jiyang_time = datetime.datetime.strptime(r.get('Jiyang_Flag').decode('utf-8'), "%Y-%m-%d %H:%M:%S")
+  File "C:\Users\12110\AppData\Local\Programs\Python\Python38\lib\_strptime.py", line 568, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+  File "C:\Users\12110\AppData\Local\Programs\Python\Python38\lib\_strptime.py", line 349, in _strptime
+    raise ValueError("time data %r does not match format %r" %
+ValueError: time data "'2024-08-03 17:28:22'" does not match format '%Y-%m-%d %H:%M:%S'
+___________________________________________________
+
+异常记录：Sat Aug  3 18:04:26 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 70, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 157, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Sat Aug  3 18:13:29 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 70, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 157, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Sat Aug  3 18:22:52 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 70, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 157, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
