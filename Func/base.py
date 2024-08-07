@@ -1,6 +1,7 @@
 import adb,json
 from time import sleep
 import time,redis
+import Func.init_redis
 from Func.point_zb import duiwu_coord,SSL_TZB_exit,\
     SSL_TZB_30,SSL_fenzu,Btn_Huahezhan,Btn_Back,\
     main_juanzhou,Btn_Huahezhan_Renwu
