@@ -185,6 +185,7 @@ def clear_log():
             f.write(fight_log_str + '\n' + content)
         # 清零
         r.lpush('log_fight_his', fight_log_str)
+        r.set('daily', 0)
         for i in fight_log:
             # if i == 'date':continue
             fight_log[i] = [0, 0]
@@ -193,16 +194,19 @@ def clear_log():
         print(fight_log)
 
         # region 更新每日任务列表
-        data = r.get('Task_List').decode('utf-8')
-        Task_list = json.loads(data)
-        for i in Task_list:
-            Task_list[i] = [1, 0]
-        # Task_list['digui'] = [0, 0] #胧车期间需要手动打极地鬼，暂时封禁自动地鬼
-        if int(weekday) not in (5,6,0):
-            Task_list['yinjie'] = [0, 0]
-        Task_list_str = json.dumps(Task_list)
-        r.set('Task_List',Task_list_str)
-        # endregion
+        a = r.hkeys('Task_Queue')
+        for i in a:
+            r.hset('Task_Queue', i, 1)
+
+        if int(r.hget('Task_Flag','fengmo')) == 0:
+            r.hset('Task_Queue', 'fengmo', 0)
+        if int(r.hget('Task_Flag','yuhun')) == 0:
+            r.hset('Task_Queue', 'yuhun', 0)
+        if int(r.get('Digui_Switch')) == 0:
+            r.hset('Task_Queue', 'digui', 0)
+        if int(weekday) not in (5,6,0) or int(r.hget('Task_Flag','yinjie')) == 0:
+            r.hset('Task_Queue','yinjie',0)
+        #endregion
 
     fight_log_str = json.dumps(fight_log)
     r.set('log_fight',fight_log_str)

@@ -54,3 +54,663 @@ Traceback (most recent call last):
 TypeError: click() argument after * must be an iterable, not NoneType
 ___________________________________________________
 
+异常记录：Sun Aug  4 01:09:43 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 63, in Auto_Run
+    now_time = now_time + datetime.timedelta(minutes= 10)
+TypeError: can only concatenate str (not "datetime.timedelta") to str
+___________________________________________________
+
+异常记录：Tue Aug  6 00:04:01 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 00:08:32 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 00:13:03 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 00:17:33 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 00:22:04 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 00:26:36 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 00:31:08 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 00:35:38 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 00:40:06 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 00:44:36 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 00:49:06 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 00:53:37 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 00:58:07 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 01:02:38 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 01:07:08 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 01:11:39 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 01:16:11 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 01:20:43 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 01:25:15 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 01:29:48 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 01:34:19 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 01:38:47 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 01:43:16 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 01:47:46 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 01:52:16 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 01:56:46 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 02:01:17 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 02:05:49 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 02:10:19 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 02:14:48 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 02:19:17 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 02:23:46 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 02:28:18 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 02:32:51 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 02:37:19 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 02:41:50 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 02:46:22 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 02:50:52 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 02:55:23 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 02:59:53 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 03:04:22 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 03:08:52 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 03:13:21 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 03:17:50 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 03:22:20 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 81, in Auto_Run
+    richang.qiandao()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 284, in qiandao
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Tue Aug  6 09:27:44 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 62, in Auto_Run
+    jiyang_flag,taigu_flag = richang.jiyang()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 130, in jiyang
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 01:15:21 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 122, in Auto_Run
+    jiejie.jiejie()
+  File "D:\0.project\5.YYS_Tool\Func\jiejie.py", line 29, in jiejie
+    base.SSL_switch(1,1)
+  File "D:\0.project\5.YYS_Tool\Func\base.py", line 76, in SSL_switch
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 08:04:19 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 92, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 236, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 08:10:04 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 92, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 236, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 08:15:51 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 92, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 236, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 08:21:39 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 92, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 236, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 08:27:26 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 92, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 236, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 08:33:12 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 92, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 236, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 08:38:58 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 92, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 236, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 08:44:47 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 92, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 236, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 08:50:33 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 92, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 236, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 08:56:20 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 92, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 236, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 09:02:06 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\Func\auto.py", line 92, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\Func\richang.py", line 236, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 18:06:00 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\YYS_TOOL\Func\auto.py", line 92, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\YYS_TOOL\Func\richang.py", line 236, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\YYS_TOOL\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 18:13:36 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\YYS_TOOL\Func\auto.py", line 92, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\YYS_TOOL\Func\richang.py", line 236, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\YYS_TOOL\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 18:21:06 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\YYS_TOOL\Func\auto.py", line 92, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\YYS_TOOL\Func\richang.py", line 236, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\YYS_TOOL\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+
+异常记录：Wed Aug  7 18:28:51 2024
+___________________________________________________
+Traceback (most recent call last):
+  File "D:\0.project\5.YYS_Tool\YYS_TOOL\Func\auto.py", line 92, in Auto_Run
+    richang.weipai()
+  File "D:\0.project\5.YYS_Tool\YYS_TOOL\Func\richang.py", line 236, in weipai
+    GetIn.getin_Weipai()
+  File "D:\0.project\5.YYS_Tool\YYS_TOOL\Func\GetIn.py", line 30, in getin_Weipai
+    adb.click(*point)
+TypeError: click() argument after * must be an iterable, not NoneType
+___________________________________________________
+

@@ -8,9 +8,8 @@ import random
 import  os
 
 ADB_ROOT = r'D:\1.nox\Nox\bin'
-DATA_ROOT = r'D:\0.project\aobi-main\aobi-main\data'
-DATA_ROOT = os.getcwd()
-DATA_ROOT = r'D:\0.project\5.YYS_Tool\data'
+# DATA_ROOT = r'D:\0.project\5.YYS_Tool\data'
+DATA_ROOT = os.getcwd() + r'\data'
 
 DEBUG = True
 

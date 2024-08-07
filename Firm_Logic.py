@@ -1,7 +1,7 @@
-import sys
+import sys,time
 from PyQt5.QtWidgets import QMainWindow, QApplication,QDialog
 from PyQt5.QtWidgets import QMessageBox
-import random
+import random,datetime
 
 # import Func.jiejie
 import Func.FengMo
@@ -13,6 +13,7 @@ from Func import base,jiejie,FengMo,exception
 from UI.YYS import *
 from UI.yuhun_Choice import *
 from UI.graph import *
+from UI.Setting import *
 # from Firm import *
 # from Thread.therad import New_Thread
 import sys
@@ -82,7 +83,7 @@ class Thread1(QThread):
             if speed_flag:
                 sleep(60)
             else:
-                sleep(0.2)
+                sleep(10)
             if count >10000:count =0
 
 
@@ -152,10 +153,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.lineEdit_7.setText(str(huodong_dict['time']))
         self.lineEdit_8.setText(str(huodong_dict['count']))
         self.pushButton.clicked.connect(self.btn_click_1)
-        self.pushButton_2.clicked.connect(self.btn_click_2)#截图
+
         self.pushButton_3.clicked.connect(self.btn_click_3)#YYS启动
-        self.pushButton_4.clicked.connect(self.btn_click_4)#点击测试
-        self.pushButton_5.clicked.connect(self.btn_click_5)#识别测试
+
         self.pushButton_6.clicked.connect(self.btn_click_6)#自检
         self.pushButton_7.clicked.connect(self.btn_click_7)#御魂
         self.pushButton_8.clicked.connect(self.btn_click_8)#活动
@@ -165,15 +165,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.pushButton_12.clicked.connect(self.btn_click_12)  # 关闭模拟器
 
 
-        self.pushButton_13.clicked.connect(self.btn_click_13)  # 功能测试
-        # self.pushButton_14.clicked.connect(self.btn_click_14)  # 线程启动
+
         self.pushButton_14.clicked.connect(self.thread1_start)  # 线程启动
 
         self.pushButton_15.clicked.connect(self.btn_click_15)  # 地鬼
         self.pushButton_16.clicked.connect(self.btn_click_16)  # 日常
-        self.pushButton_17.clicked.connect(self.btn_click_17)  # 持续点击
+
         self.pushButton_18.clicked.connect(self.btn_click_18)  # 持续点击
-        # self.pushButton_19.clicked.connect(child.show)  # 持续点击
+
         self.pushButton_21.clicked.connect(self.btn_click_21)  # 结界突破
         self.pushButton_22.clicked.connect(self.btn_click_22)  # 委派
         self.pushButton_23.clicked.connect(self.btn_click_23)  # 斗技
@@ -182,34 +181,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def btn_click_13(self):#功能测试
         if DEBUG: print('Btn13 Click')
         if DEBUG: print('功能测试')
-        # FengMo.find_lanpiao()
-        # richang.digui()
-        # richang.weipai()
-        # adb.swipe(1744,215,1744,825,210)
-        # richang.fengmo()
-        # richang.true_snake()
-        # richang.qiandao()
-        # richang.youjian()
-        # jiejie.jiejie_fight(3)
-        # untitled.test()
-        # richang.hun11(18,1)
-        # richang.find_lanpiao()
-        # base.SSL_Deal_tuozhan()
-        # adb.swipe(800, 2000, 1744, 2000, 210)
-        # GetIn.getin_yuhun('shui')
-        # keep_find_multiple_slow('douji_fenxiang')
-        #
-        # for i in range(20):
-        #     Func.douji.douji()
-        # base.huahezhan()
-        # base.clear_log()
-        # richang.youjian()
-        # richang.liao_jinbi()
-        # richang.test()
-        # exception.deal_exception()
-        # exception.restart()
-        # richang.jiyang()
-        richang.yinjie()
+        exception.restart()
+
 
 
     def thread1_start(self):
@@ -327,14 +300,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if DEBUG : print('Btn16 Click')
         dally()
 
-    def btn_click_17(self):
-        if DEBUG : print('Btn17 Click')
-        x_v = int(self.lineEdit_3.text())
-        y_v = int(self.lineEdit_4.text())
-        while  True:
-            adb.click(x_v + random.randint(1,15) * random.choice([1,-1]) , y_v+ random.randint(1,15) * random.choice([1,-1]))
-            sleep(5.33 + round(random.random(),2) * random.choice([1,-1]))
-        # adb.click(150, 1960)
+    # def btn_click_17(self):
+    #     if DEBUG : print('Btn17 Click')
+    #     x_v = int(self.lineEdit_3.text())
+    #     y_v = int(self.lineEdit_4.text())
+    #     while  True:
+    #         adb.click(x_v + random.randint(1,15) * random.choice([1,-1]) , y_v+ random.randint(1,15) * random.choice([1,-1]))
+    #         sleep(5.33 + round(random.random(),2) * random.choice([1,-1]))
+    #     # adb.click(150, 1960)
 
     def btn_click_18(self):
         if DEBUG : print('Btn18 Click 逢魔')
@@ -344,7 +317,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def btn_click_19(self):
         if DEBUG : print('Btn19 Click 呼出子窗口')
         # self.chile_Win = Child()
-        self.child.show()
+        # self.child.show()
         # self.child.exec_()
         # child_window = Child()
         # child_window.show()
@@ -352,7 +325,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def btn_click_20(self):
         if DEBUG : print('Btn20 Click 呼出子窗口2')
         # self.chile_Win = Child()
-        self.child.show()
+        # self.child.show()
         # self.child.exec_()
         # child_window = Child()
         # child_window.show()
@@ -544,6 +517,57 @@ class ChildWindow(QDialog, Ui_Dialog1):
     #     self.label.setText(str(msg))
 
 
+class ChildWindow_Setting(QDialog, Ui_Dialog_Setting):
+    def __init__(self):
+        super(ChildWindow_Setting, self).__init__()
+        self.setupUi(self)
+        self.pushButton.clicked.connect(self.btn_click_1)
+        self.pushButton_2.clicked.connect(self.btn_click_2)
+
+
+        self.comboBox.setCurrentIndex(int(r.get('Server_Switch')))
+        self.comboBox_2.setCurrentIndex(int(r.get('Digui_Switch')))
+        self.comboBox_3.setCurrentIndex(int(r.hget('Task_Flag','fengmo')))
+        self.comboBox_4.setCurrentIndex(int(r.hget('Task_Flag', 'fudai')))
+        self.comboBox_5.setCurrentIndex(int(r.hget('Task_Flag', 'yinjie')))
+        self.lineEdit.setText(r.get('base_delay').decode('utf-8'))
+
+
+    def btn_click_1(self):
+        if DEBUG: print('Btn1 Click 设置窗体')
+        Server_Choice = self.comboBox.currentIndex()
+        r.set('Server_Switch',Server_Choice)
+
+        Digui_Choice = self.comboBox_2.currentIndex()
+        if Digui_Choice == '0':r.hset('Task_Queue', 'digui', 0)
+        r.set('Digui_Switch', Digui_Choice)
+
+        Fengmo_Flag = self.comboBox_3.currentIndex()
+        # r.hset('Task_Queue', 'fengmo', 1)
+        r.hset('Task_Flag','fengmo', Fengmo_Flag)
+
+        Fudai_Flag = self.comboBox_4.currentIndex()
+        r.hset('Task_Flag', 'fudai', Fudai_Flag)
+
+        yinjie_Flag = self.comboBox_5.currentIndex()
+        # r.hset('Task_Queue', 'yinjie', 0)
+        r.hset('Task_Flag', 'yinjie', yinjie_Flag)
+
+        base_delay = self.lineEdit.text()
+        r.set('base_delay', base_delay)
+        self.close()
+
+    def btn_click_2(self):
+        if DEBUG: print('Btn2 Click 设置窗体')
+        self.close()
+
+
+
+
+
+
+
+
 class ChildWindow1(QDialog, Ui_Dialog_Graph):
     # def __init__(self):
     #     super(ChildWindow1, self).__init__()
@@ -717,11 +741,16 @@ if __name__ == '__main__':
     # child_ui.setupUi(child)
     child = ChildWindow()
     child1 = ChildWindow1()
+    child_Setting = ChildWindow_Setting()
 
     btn = main_window.pushButton_19  # 主窗体按钮事件绑定
     btn.clicked.connect(child.show)
     btn = main_window.pushButton_20  # 主窗体按钮事件绑定
     btn.clicked.connect(child1.show)
+
+    btn = main_window.pushButton_24  # 主窗体按钮事件绑定
+    btn.clicked.connect(child_Setting.show)
+
 
     sys.exit(app.exec())
 

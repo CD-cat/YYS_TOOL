@@ -1,6 +1,6 @@
 from time import sleep
 
-import adb
+import adb,datetime
 from Func import base
 from Func.base import keep_find, keep_find_slow
 from Func.point_zb import fengmo_foxiang, fengmo_richang, fengmo_entry, tiaozhan, fengmo_damo, fengmo_boss_quit, \
@@ -36,7 +36,7 @@ def fengmo():
         pass
     sleep(base_delay)
     #region 现世逢魔&达摩
-    for i in range(4):
+    for i in range(5):
         adb.click(*tiaozhan)
         sleep(base_delay*5)
     adb.click(*fengmo_damo)
@@ -50,7 +50,12 @@ def fengmo():
     sleep(3.14)
     point = keep_find('SSL_logo')
     adb.click(*point)
-    base.SSL_switch(2, 2)
+
+    week_day = datetime.datetime.now().isoweekday()
+    if week_day == 4:
+        base.SSL_switch(2, 3)
+    else:
+        base.SSL_switch(2, 2)
     x,y = point
     # region 确认是否进入逢魔集结界面
     while True:
@@ -115,6 +120,7 @@ def find_lanpiao():
             else:
                 sleep(base_delay)
                 adb.click(*fengmo_quit)
+                sleep(base_delay)
                 point = adb.match('SSL_logo')  # 如果没有回到逢魔界面，即为进入了战斗
                 if point != None:  # 如果攻打按钮还在，
                     pass

@@ -68,7 +68,8 @@ def openMobil():
     open_YYS()
 
 def open_YYS():
-    point = keep_find('YYS_B' if 1 else 'YYS_B')
+    YYS_List = ['YYS_WY','YYS_B']
+    point = keep_find(YYS_List[int(r.get('Server_Switch'))])
     adb.click(*point)
     sleep(base_delay*12)
     point,picname = keep_find_multiple_slow(['8+','New_Huodong','Sys_Restart'])#多目标检索，差游戏公告
