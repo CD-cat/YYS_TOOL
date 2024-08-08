@@ -5,9 +5,13 @@ from hashlib import md5
 from datetime import date
 from time import sleep
 import random
-import  os
+import  os,json
 
-ADB_ROOT = r'D:\1.nox\Nox\bin'
+with open("./ADB_Root.txt", "r") as f:  # 打开文件
+    data = f.read()  # 读取文件
+    print(data)
+
+ADB_ROOT = data
 # DATA_ROOT = r'D:\0.project\5.YYS_Tool\data'
 DATA_ROOT = os.getcwd() + r'\data'
 

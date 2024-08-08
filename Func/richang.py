@@ -133,86 +133,59 @@ def jiyang():
         adb.click(*Btn_Jiejie_Yucheng)
         sleep(base_delay)
         point = adb.match('YYL_Jiejie_Yucheng')
-        if point != None:break
+        if point != None: break
     adb.click(*Btn_Jiejie_Jiyang)
-    point,picname =keep_find_multiple(['jiyang_jinru','jiyang_chakan'])
+    point, picname = keep_find_multiple(['jiyang_jinru', 'jiyang_chakan'])
     if picname == 'jiyang_chakan':
         # flag = False
         adb.click(*tiaozhan)
         back_flag = 2
         sleep(base_delay)
         adb.click(*Btn_Back)
-
     else:
-
-        flag = True
-        for i in range(20):
-            point = adb.match('jiejieka_taigu_6', 0.93)  # 六星太古
-            if point != None:
-                flag = not flag
-                taigu_flag = 6
-            if flag:
-                point = adb.match('jiejieka_taigu_5',0.98)#五星太鼓
-                if point != None:
-                    taigu_flag = 5
-                    flag = not flag
-            if flag:
-                point = adb.match('jiejieka_taigu_4',0.98)#四星太古
+        pic_list = ['jiejieka_taigu_6', 'jiejieka_taigu_5', 'jiejieka_taigu_4']
+        ac_list = [0.93, 0.99, 0.97]
+        flag = False
+        for i in range(len(pic_list)):
+            for j in range(20):
+                point = adb.match(pic_list[i], ac_list[i])  # 六星太古
                 if point != None:
                     flag = not flag
-                    taigu_flag = 4
-            if flag:
-                #下滑翻页循环
+                    taigu_flag = 6 - i
+                    break
                 adb.swipe(560, 825, 560, 715, 15)
                 adb.click(560, 825)
-                pass
-            else:
-                adb.click(*point)
-                point = keep_find('jiyang_jinru')
-                adb.click(*point)
                 sleep(base_delay)
-                keep_find('Flag_Shishen_yucheng')
-                adb.click(*ZB_SSL_Kapian[0])
-                point = keep_find('Jiyang_Confirm')
-                adb.click(*point)
-                back_flag = 1
-                keep_find('Flag_Shishen_yucheng')
-                adb.click(*Btn_Back)
-                sleep(base_delay * 2)
-                adb.click(*Btn_Back)
-                break
-            if i == 19:
-                adb.click(*tiaozhan)
-                back_flag = 3
-                sleep(base_delay)
-                adb.click(*Btn_Back)
-
-
+            if flag: break
+            adb.click(*tiaozhan)
+            sleep(base_delay)
+            adb.click(*Btn_Jiejie_Jiyang)
+            sleep(base_delay)
+        if flag:
+            adb.click(*point)
+            point = keep_find('jiyang_jinru')
+            adb.click(*point)
+            sleep(base_delay)
+            keep_find('Flag_Shishen_yucheng')
+            adb.click(*ZB_SSL_Kapian[0])
+            point = keep_find('Jiyang_Confirm')
+            adb.click(*point)
+            back_flag = 1
+            keep_find('Flag_Shishen_yucheng')
+            adb.click(*Btn_Back)
+            sleep(base_delay * 2)
+            adb.click(*Btn_Back)
+        else:
+            back_flag = 3
+            adb.click(*tiaozhan)
+            sleep(base_delay)
+            adb.click(*Btn_Back)
     sleep(base_delay * 2)
     adb.click(*Btn_Back)
     keep_find('YYL_Jiejie')
     adb.click(*Btn_Back)
-    return back_flag,taigu_flag
-        # for i in ZB_Jiejie_Jiyang:
-        #     adb.click(*i)
-        #     sleep(base_delay)
-        #     point = adb.match('jiejieka_taigu_5')#六星太古
-        #     if point != None:
-        #         flag = not flag
-        #     if flag:
-        #         point = adb.match('jiejieka_taigu_5')#五星太鼓
-        #         if point != None:
-        #             flag = not flag
-        #     if flag:
-        #         point = adb.match('jiejieka_taigu_5')#四星太古
-        #         if point != None:
-        #             flag = not flag
-        #     if flag:
-        #         #下一轮循环
-        #         pass
-        #     else:
-        #
-        #         keep_find('jiyang_jinru')
+    return back_flag, taigu_flag
+
 
 
 #委派
