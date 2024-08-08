@@ -12,6 +12,7 @@ with open("./ADB_Root.txt", "r") as f:  # 打开文件
     print(data)
 
 ADB_ROOT = data
+# ADB_ROOT = r'D:\11.mumu\MuMu Player 12\shell'
 # DATA_ROOT = r'D:\0.project\5.YYS_Tool\data'
 DATA_ROOT = os.getcwd() + r'\data'
 
