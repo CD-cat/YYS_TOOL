@@ -12,17 +12,25 @@ with open("./ADB_Root.txt", "r") as f:  # 打开文件
     print(data)
 
 ADB_ROOT = data
-# ADB_ROOT = r'D:\11.mumu\MuMu Player 12\shell'
+# ADB_ROOT = r'D:\1.nox\Nox\bin'
+# ADB_ROOT = r'D:\11.mumu\MuMu_Player_12\shell'
 # DATA_ROOT = r'D:\0.project\5.YYS_Tool\data'
 DATA_ROOT = os.getcwd() + r'\data'
+Device_ID = r'127.0.0.1:62025'
+Device_ID = r'127.0.0.1:5555'#其他模拟器测试
 
 DEBUG = True
 
 
 def adb(cmd):
-    process = subprocess.Popen(rf'{ADB_ROOT}\adb {cmd}', shell=True, stdout=subprocess.PIPE)
+    process = subprocess.Popen(rf'{ADB_ROOT}\adb -s {Device_ID} {cmd}', shell=True, stdout=subprocess.PIPE)
     return process.stdout.read()
 
+
+
+def connect():
+    process = subprocess.Popen(rf'{ADB_ROOT}\adb connect {Device_ID}', shell=True, stdout=subprocess.PIPE)
+    return process.stdout.read()
 
 def device_check():
     result = adb('devices')
@@ -86,6 +94,8 @@ def swipe(src_x, src_y, dist_x, dist_y, speed=200):
     if DEBUG:
         print(f'swipe ({src_x}, {src_y}) -> ({dist_x}, {dist_y})')
     adb(f'shell input swipe {src_x} {src_y} {dist_x} {dist_y} {speed}')
+
+
 
 
 def wait(time=0.2):

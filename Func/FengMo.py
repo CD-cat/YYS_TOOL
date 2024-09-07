@@ -2,20 +2,23 @@ from time import sleep
 
 import adb,datetime
 from Func import base
-from Func.base import keep_find, keep_find_slow
+from Func.base import keep_find, keep_find_slow,r
 from Func.point_zb import fengmo_foxiang, fengmo_richang, fengmo_entry, tiaozhan, fengmo_damo, fengmo_boss_quit, \
     fenghmo_cent, Btn_Back, fengmo_xianshi, fengmo_lanpiao, fengmo_quit
 from Func.richang import base_delay
 
 #逢魔
 
-
+r = base.r
 
 def fengmo():
     # adb.swipe(1744, 215, 1744, 825, 210)  # 将分组拉到最上
-    adb.swipe(800, 2000, 1744, 2000, 210)
-    adb.swipe(800, 2000, 1744, 2000, 210)
-    adb.swipe(800, 2000, 1744, 2000, 210)
+    adb.swipe(800, 1000, 1744, 1000, 210)
+    # sleep(base_delay)
+    adb.swipe(800, 1000, 1744, 1000, 210)
+    # sleep(base_delay)
+    adb.swipe(800, 1000, 1744, 1000, 210)
+    # sleep(base_delay)
     adb.click(*fengmo_foxiang)
     sleep(base_delay)
     adb.click(*fengmo_richang)
@@ -43,7 +46,7 @@ def fengmo():
     sleep(base_delay)
     adb.click(*fengmo_damo)
     sleep(base_delay)
-    find_lanpiao()
+
 
     #endregion
 
@@ -56,6 +59,7 @@ def fengmo():
         base.SSL_switch(2, 3)
     else:
         base.SSL_switch(2, 2)
+    find_lanpiao()
     x,y = point
     # region 确认是否进入逢魔集结界面
     while True:
@@ -69,8 +73,11 @@ def fengmo():
             adb.click(*fengmo_boss_quit)
         else:
             pass
-
-        adb.click(x+158,y)#偏移量
+        if int(r.hget('Task_Flag','fengmo')) == 1:
+            offset = 158
+        elif week_day in [2,3,4,5]:
+            offset = 158*2
+        adb.click(x+offset,y)#偏移量
         sleep(0.8)
         adb.click(*fenghmo_cent)
         sleep(0.8)
@@ -84,7 +91,7 @@ def fengmo():
         else:
             break
     sleep(6.66)
-    keep_find_slow('Btn_back')#不能用这个表示，得找组图表
+    keep_find_slow('Btn_back')
     adb.click(*tiaozhan)
     sleep(360.12)
     keep_find_slow('SSL_logo')
@@ -119,12 +126,17 @@ def find_lanpiao():
                 adb.click(*fengmo_lanpiao)
             else:
                 sleep(base_delay)
-                adb.click(*fengmo_quit)
-                sleep(base_delay)
+                point = adb.match('Fengmo_Baoxiang')
+                if point != None:
+                    adb.click(*tiaozhan)
+                else:
+                    adb.click(*fengmo_quit)
+                sleep(base_delay*2)
                 point = adb.match('SSL_logo')  # 如果没有回到逢魔界面，即为进入了战斗
                 if point != None:  # 如果攻打按钮还在，
                     pass
                 else:
+                    keep_find('Btn_back')
                     adb.click(*tiaozhan)
                     point = keep_find_slow('Fin_001')
                     adb.click(*point)

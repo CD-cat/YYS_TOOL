@@ -9,7 +9,7 @@ import Func.douji
 import Func.yuhun
 # import Func.auto
 from Func import richang
-from Func import base,jiejie,FengMo,exception
+from Func import base,jiejie,FengMo,exception,HuiJuan,init_redis
 from UI.YYS import *
 from UI.yuhun_Choice import *
 from UI.graph import *
@@ -48,7 +48,7 @@ import json,redis
 DEBUG = True
 # DEBUG = False
 
-r = redis.StrictRedis(host='localhost', port=6379, db=0)
+r = base.r
 class Thread1(QThread):
     signal = pyqtSignal(str)
 
@@ -83,7 +83,7 @@ class Thread1(QThread):
             if speed_flag:
                 sleep(60)
             else:
-                sleep(10)
+                sleep(15)
             if count >10000:count =0
 
 
@@ -166,22 +166,81 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
 
+        # self.pushButton_14.clicked.connect(self.btn_click_14)  # 线程启动
         self.pushButton_14.clicked.connect(self.thread1_start)  # 线程启动
 
         self.pushButton_15.clicked.connect(self.btn_click_15)  # 地鬼
-        self.pushButton_16.clicked.connect(self.btn_click_16)  # 日常
 
         self.pushButton_18.clicked.connect(self.btn_click_18)  # 持续点击
-
+        # self.pushButton_19.clicked.connect(child.show)  # 持续点击
         self.pushButton_21.clicked.connect(self.btn_click_21)  # 结界突破
         self.pushButton_22.clicked.connect(self.btn_click_22)  # 委派
         self.pushButton_23.clicked.connect(self.btn_click_23)  # 斗技
+        self.pushButton_25.clicked.connect(self.btn_click_25)  # 链接模拟器
 
     #按钮链接
     def btn_click_13(self):#功能测试
         if DEBUG: print('Btn13 Click')
         if DEBUG: print('功能测试')
-        exception.restart()
+        # FengMo.find_lanpiao()
+        # richang.digui()
+        # richang.weipai()
+        # adb.swipe(1744,215,1744,825,210)
+        # richang.fengmo()
+        # richang.true_snake()
+        # richang.qiandao()
+        # richang.youjian()
+        # jiejie.jiejie_fight(3)
+        # untitled.test()
+        # richang.hun11(18,1)
+        # richang.find_lanpiao()
+        # base.SSL_Deal_tuozhan()
+        # adb.swipe(800, 2000, 1744, 2000, 210)
+        # GetIn.getin_yuhun('shui')
+        # keep_find_multiple_slow('douji_fenxiang')
+        #
+        # for i in range(20):
+        #     Func.douji.douji()
+        # base.huahezhan()
+        # base.clear_log()
+        # richang.youjian()
+        # richang.liao_jinbi()
+        # richang.test()
+        # exception.deal_exception()
+        # exception.restart()
+        # richang.jiyang()
+        # richang.yinjie()
+        # adb.swipe(560, 825, 560, 715, 12)
+        # adb.click(560, 825)
+        # flag = True
+        # point = adb.match('jiejieka_taigu_6', 0.98)  # 六星太古
+        # if point != None:
+        #     flag = not flag
+        # if flag:
+        #     point = adb.match('jiejieka_taigu_5', 0.98)  # 五星太鼓
+        #     if point != None:
+        #         flag = not flag
+        # if flag:
+        #     point = adb.match('jiejieka_taigu_4', 0.98)  # 四星太古
+        #     if point != None:
+        #         flag = not flag
+        # taigu_flag = 6
+        # now_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        # r.hset('Taigu_Sum', taigu_flag, int(r.hget('Taigu_Sum', taigu_flag)) + 1)
+        # r.lpush('Taigu_Log', now_time+' 寄养' +str(taigu_flag)+ '星太鼓')
+        # point = adb.match('YYS_WY')
+        # adb.click(*point)
+        # untitled.open_YYS()
+        # exception.restart()
+        # HuiJuan.Kun28()
+        # HuiJuan.Huijuan_Auto()
+        # point = base.keep_find('jiejie_refresh')
+        # adb.click(*point)
+        # point = base.keep_find('jiejie_refresh_confirm')
+        # adb.click(*point)
+        # jiejie.jiejie_fight()
+        # richang.shop_daily()
+        jiejie.jiejie()
 
 
 
@@ -217,7 +276,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def btn_click_3(self):
         if DEBUG : print('Btn3 Click')
-        start_yys()
+        # start_yys()
+        untitled.open_YYS()
 
     def btn_click_4(self):
         if DEBUG : print('Btn4 Click')
@@ -300,14 +360,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if DEBUG : print('Btn16 Click')
         dally()
 
-    # def btn_click_17(self):
-    #     if DEBUG : print('Btn17 Click')
-    #     x_v = int(self.lineEdit_3.text())
-    #     y_v = int(self.lineEdit_4.text())
-    #     while  True:
-    #         adb.click(x_v + random.randint(1,15) * random.choice([1,-1]) , y_v+ random.randint(1,15) * random.choice([1,-1]))
-    #         sleep(5.33 + round(random.random(),2) * random.choice([1,-1]))
-    #     # adb.click(150, 1960)
+    def btn_click_17(self):
+        if DEBUG : print('Btn17 Click')
+        x_v = int(self.lineEdit_3.text())
+        y_v = int(self.lineEdit_4.text())
+        while  True:
+            adb.click(x_v + random.randint(1,15) * random.choice([1,-1]) , y_v+ random.randint(1,15) * random.choice([1,-1]))
+            sleep(5.33 + round(random.random(),2) * random.choice([1,-1]))
+        # adb.click(150, 1960)
 
     def btn_click_18(self):
         if DEBUG : print('Btn18 Click 逢魔')
@@ -317,7 +377,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def btn_click_19(self):
         if DEBUG : print('Btn19 Click 呼出子窗口')
         # self.chile_Win = Child()
-        # self.child.show()
+        self.child.show()
         # self.child.exec_()
         # child_window = Child()
         # child_window.show()
@@ -325,7 +385,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def btn_click_20(self):
         if DEBUG : print('Btn20 Click 呼出子窗口2')
         # self.chile_Win = Child()
-        # self.child.show()
+        self.child.show()
         # self.child.exec_()
         # child_window = Child()
         # child_window.show()
@@ -343,6 +403,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         count = int(self.lineEdit_15.text())
         for i in range(count):
             Func.douji.douji()
+
+    def btn_click_25(self):
+        if DEBUG : print('Btn25 Click 连接模拟器')
+        adb.connect()
 
 
 
@@ -524,27 +588,33 @@ class ChildWindow_Setting(QDialog, Ui_Dialog_Setting):
         self.pushButton.clicked.connect(self.btn_click_1)
         self.pushButton_2.clicked.connect(self.btn_click_2)
 
-
         self.comboBox.setCurrentIndex(int(r.get('Server_Switch')))
         self.comboBox_2.setCurrentIndex(int(r.get('Digui_Switch')))
-        self.comboBox_3.setCurrentIndex(int(r.hget('Task_Flag','fengmo')))
+        self.comboBox_3.setCurrentIndex(int(r.hget('Task_Flag', 'fengmo')))
         self.comboBox_4.setCurrentIndex(int(r.hget('Task_Flag', 'fudai')))
         self.comboBox_5.setCurrentIndex(int(r.hget('Task_Flag', 'yinjie')))
+        self.comboBox_6.setCurrentIndex(int(r.hget('Task_Flag', 'jiejie')))
+        self.comboBox_7.setCurrentIndex(int(r.get('Simulator_Switch')))
+        self.comboBox_8.setCurrentIndex(int(r.hget('Task_Flag', 'fengmo')))
+        self.comboBox_9.setCurrentIndex(int(r.hget('Huodong', 'flag')))
         self.lineEdit.setText(r.get('base_delay').decode('utf-8'))
-
+        self.lineEdit_2.setText(r.hget('Huodong', 'time').decode('utf-8'))
+        self.lineEdit_3.setText(r.hget('Huodong', 'number').decode('utf-8'))
 
     def btn_click_1(self):
+        err_flag = True  # 为真则正常调用方法，为假说明有异常
+
         if DEBUG: print('Btn1 Click 设置窗体')
         Server_Choice = self.comboBox.currentIndex()
-        r.set('Server_Switch',Server_Choice)
+        r.set('Server_Switch', Server_Choice)
 
         Digui_Choice = self.comboBox_2.currentIndex()
-        if Digui_Choice == '0':r.hset('Task_Queue', 'digui', 0)
+        if Digui_Choice == '0': r.hset('Task_Queue', 'digui', 0)
         r.set('Digui_Switch', Digui_Choice)
 
         Fengmo_Flag = self.comboBox_3.currentIndex()
         # r.hset('Task_Queue', 'fengmo', 1)
-        r.hset('Task_Flag','fengmo', Fengmo_Flag)
+        r.hset('Task_Flag', 'fengmo', Fengmo_Flag)
 
         Fudai_Flag = self.comboBox_4.currentIndex()
         r.hset('Task_Flag', 'fudai', Fudai_Flag)
@@ -553,9 +623,48 @@ class ChildWindow_Setting(QDialog, Ui_Dialog_Setting):
         # r.hset('Task_Queue', 'yinjie', 0)
         r.hset('Task_Flag', 'yinjie', yinjie_Flag)
 
+        jiejie_Flag = self.comboBox_6.currentIndex()
+        # r.hset('Task_Queue', 'yinjie', 0)
+        r.hset('Task_Flag', 'jiejie', jiejie_Flag)
+
+        Moniqi_Flag = self.comboBox_7.currentIndex()
+        # r.hset('Task_Queue', 'yinjie', 0)
+        r.set('Simulator_Switch', Moniqi_Flag)
+
+        fengmo_Flag = self.comboBox_8.currentIndex()
+        # r.hset('Task_Queue', 'yinjie', 0)
+        r.hset('Task_Flag', 'fengmo', fengmo_Flag)
+
+        huodong_Flag = self.comboBox_9.currentIndex()
+        # r.hset('Task_Queue', 'yinjie', 0)
+        r.hset('Huodong', 'flag', huodong_Flag)
+
         base_delay = self.lineEdit.text()
-        r.set('base_delay', base_delay)
-        self.close()
+        huodong_time = self.lineEdit_2.text()
+        huodong_number = self.lineEdit_3.text()
+
+        if base_delay and huodong_time and huodong_number:
+            try:
+                base_delay = float(base_delay)
+                huodong_time = int(huodong_time)
+                huodong_number = int(huodong_number)
+
+            except:
+                msg_box = QMessageBox(QMessageBox.Critical, '错误', '基础延时仅能输入数字、战斗时间和次数仅能输入整数')
+                msg_box.exec_()
+                err_flag = False
+        else:
+            msg_box = QMessageBox(QMessageBox.Critical, '错误', '基础延时、战斗时间和次数不能为空或0')
+            msg_box.exec_()
+            err_flag = False
+
+        if err_flag:
+            if huodong_number != int(r.hget('Huodong', 'number')):
+                r.hset('Huodong', 'finish', 0)
+            r.set('base_delay', base_delay)
+            r.hset('Huodong', 'time', huodong_time)
+            r.hset('Huodong', 'number', huodong_number)
+            self.close()
 
     def btn_click_2(self):
         if DEBUG: print('Btn2 Click 设置窗体')
@@ -718,7 +827,7 @@ class ChildWindow1(QDialog, Ui_Dialog_Graph):
     #     self.label.setText(str(msg))
 
 if __name__ == '__main__':
-
+    init_redis.Check_Redis()
     with open("./data/game_data/log_time.txt", "r") as f:  # 打开文件
         data = f.read()  # 读取文件
         global time_log

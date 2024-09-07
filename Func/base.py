@@ -1,16 +1,20 @@
 import adb,json
 from time import sleep
 import time,redis
-import Func.init_redis
 from Func.point_zb import duiwu_coord,SSL_TZB_exit,\
-    SSL_TZB_30,SSL_fenzu,Btn_Huahezhan,Btn_Back,\
-    main_juanzhou,Btn_Huahezhan_Renwu
+    SSL_TZB_30,SSL_fenzu, Btn_Back
+
 # from Func.point_zb import *
 debug = True
 # debug = False
 
+# r = redis.StrictRedis(host='localhost', port=6379, db=0)
+with open("./Redis_Info.txt", "r") as f:  # 打开文件
+    data = f.read()  # 读取文件
+    print(data)
+Redis_Info = json.loads(data)
 
-r = redis.StrictRedis(host='localhost', port=6379, db=0)
+r = redis.StrictRedis(host=Redis_Info[0], port=Redis_Info[1], db=Redis_Info[2])
 base_delay = float(r.get('base_delay').decode('utf-8'))
 
 def save_img (n):
@@ -26,37 +30,6 @@ def save_img (n):
         adb.save_sc()
     if debug:print(n)
     if debug:print('666')
-
-
-def huahezhan():
-    while True:
-
-        point = adb.match('SSL_main')
-        if point != None:
-            adb.click(*Btn_Huahezhan)
-            break
-        else:
-            adb.click(*main_juanzhou)       #处理主界面挂机太久需要点返回的情况
-            point = adb.match('SSL_main')
-            if point != None:
-                adb.click(*point)
-                break
-            else:
-                adb.click(*Btn_Back)
-                pass
-        sleep(base_delay)
-    sleep(base_delay*2)
-    adb.click(*Btn_Huahezhan_Renwu)
-    point = adb.match('Huahezhan_Lingqu')
-    if point != None:
-        adb.click(*point)
-        sleep(base_delay)
-        adb.click(*point)
-    else:pass
-    sleep(base_delay)
-    adb.click(*Btn_Back)
-
-
 
 
 # adb.save_sc('asd.png')
@@ -169,7 +142,7 @@ def keep_find_multiple_slow(pic_name_list):
 
 #每日更新log并转历史
 def clear_log():
-    r = redis.StrictRedis(host='localhost', port=6379, db=0)
+
     today = time.strftime('%Y-%m-%d', time.localtime())
     weekday = time.strftime('%w', time.localtime())
     # with open("./data/game_data/log_fight.txt", "r") as f:  # 打开文件
@@ -205,8 +178,13 @@ def clear_log():
             r.hset('Task_Queue', 'yuhun', 0)
         if int(r.get('Digui_Switch')) == 0:
             r.hset('Task_Queue', 'digui', 0)
+        if int(r.hget('Task_Flag', 'daily')) == 0:
+            r.hset('Task_Queue', 'daily', 0)
         if int(weekday) not in (5,6,0) or int(r.hget('Task_Flag','yinjie')) == 0:
             r.hset('Task_Queue','yinjie',0)
+        #更新活动
+        r.hset('Huodong', 'flag', 0)
+        r.hset('Huodong', 'finish', 0)
         #endregion
 
     fight_log_str = json.dumps(fight_log)

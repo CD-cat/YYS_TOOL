@@ -11,8 +11,21 @@ debug = True
 #御魂数字种类对应
 # yuhun = ['tu','wang']
 
+#悬赏封印拒绝按钮
+Xuanshang_refuse = (1278,776)
+
+#活动按钮
+Huodong_point = (688,277)
+#活动二级按钮
+Huodong_point_Sec = (1369,425)
+#困28
+KUN28_ZB = (1727,869)
+#困28返回按钮
+KUN28_Back = (1570,226)
 #主界面阴阳寮按钮
 Btn_YYL = (848,950)
+#主界面阴阳寮按钮
+Btn_Shop = (1023,950)
 #结界育成
 Btn_Jiejie_Yucheng = (961,678)
 #育成寄养按钮

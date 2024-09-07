@@ -4,10 +4,11 @@ from Func.richang import base_delay
 import adb
 from Func.base import keep_find, keep_find_multiple_slow
 from Func.point_zb import douji_fight, douji_zidong_up, douji_auto_fight
+from Func import base
 
 
 def douji():
-    r = redis.StrictRedis(host='localhost', port=6379, db=0)
+    r = base.r
     with open("./data/game_data/log_fight.txt", "r") as f:  # 打开文件
         data = f.read()  # 读取文件
         print(data)

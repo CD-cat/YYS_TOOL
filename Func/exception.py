@@ -1,17 +1,24 @@
 import redis
 import adb
 from time import sleep
-from Func import untitled
+from Func import untitled,base
 from Func.richang import base_delay
 from Func.point_zb import *
 from Func.base import keep_find,keep_find_slow, keep_find_multiple
 
 
-r = redis.StrictRedis(host='localhost', port=6379, db=0)
+r = base.r
 #region 异常处理
 def deal_exception():
     error_flag = False
     #关闭加成
+
+    sleep(base_delay)
+    error_flag = Xuanshang_Fengyin()
+
+    error_flag = deal_offline()
+
+
     sleep(base_delay)
     point = adb.match('yuhun_jiacheng_15m')
     if point != None:
@@ -39,10 +46,39 @@ def deal_exception():
     return error_flag
 #endregion
 
+def Xuanshang_Fengyin():
+    point = adb.match('Xuanshang_Fengyin')
+    if point != None:
+        adb.click(*Xuanshang_refuse)
+        return True
+    return False
+
+def deal_offline():
+    untitled.entry_YYS()
+    point = adb.match('Error_Offline')
+    if point != None:
+        point = keep_find('Error_Offline_Confirm')
+        adb.click(*point)
+        untitled.entry_YYS()
+
+        return True
+    return False
+
+
+
+
 #region 异常处理不了，重启游戏
 def restart():
-    end_str = ['shell am force-stop com.netease.onmyoji','shell am force-stop com.netease.onmyoji.bili']
+    #
+    end_str = [
+            'shell am force-stop com.netease.onmyoji',
+            'shell am force-stop com.netease.onmyoji.bili',
+            'shell am force-stop com.netease.onmyoji.wyzymnqsd_cps'
+        ]
+
+    # end_str = ['shell am force-stop com.netease.onmyoji.wyzymnqsd_cps']
     key = adb.adb(end_str[int(r.get('Server_Switch'))])
+    # key = adb.adb('shell pm list packages')
     sleep(base_delay*10)
     untitled.open_YYS()
 #endregion

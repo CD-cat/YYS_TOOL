@@ -9,7 +9,7 @@ from Func.richang import base_delay
 
 
 def yuhun(hun):
-    r = redis.StrictRedis(host='localhost', port=6379, db=0)
+    r = base.r
     while True:
 
         point = adb.match('SSL_main')

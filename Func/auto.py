@@ -1,36 +1,43 @@
 import json,time,traceback,redis,datetime
 # import Func.FengMo
 import Func.douji
+import Func.richang
 import Func.yuhun
-from Func import richang,untitled,jiejie,yuhun,base,FengMo,exception
+from Func import richang,untitled,jiejie,yuhun,base,FengMo,exception,base,HuiJuan,huodong
 from time import sleep
 DEBUG = True
 # DEBUG = False
 
 def Auto_Run():
+    # huodong.huodong()
     try:
+        r = base.r
         #region 异常测试，抛出异常
         # raise Exception('发生异常错误信息')
         #endregion
         #执行标志，每次循环都只执行一个任务
         Running_Flag = False
 
-        r = redis.StrictRedis(host='localhost', port=6379, db=0)
+
         error_flag = int(r.get('ERROR_FLAG'))
 
         # region 异常处理
         if error_flag == 0 :pass
         elif error_flag ==1:
             Running_Flag = True
-            exception.deal_exception()
-            r.set('ERROR_FLAG',0)
+            if exception.deal_exception():
+                r.set('ERROR_FLAG',0)
+            else:
+                r.set('ERROR_FLAG', int(r.get('ERROR_FLAG'))+1)
         elif error_flag ==2:
             exception.restart()
             Running_Flag = True
             r.set('ERROR_FLAG',0)
-        elif error_flag == 3:
-            Running_Flag = True
+        elif error_flag >= 3:
             print('什么寄吧情况')
+            exception.restart()
+            Running_Flag = True
+            r.set('ERROR_FLAG', 0)
         # endregion
 
         data = r.get('log_fight').decode('utf-8')
@@ -47,7 +54,7 @@ def Auto_Run():
         # Task_list = json.loads(data)
         Time_list = time.localtime()
 
-        if Running_Flag == False:
+        if Running_Flag == False :
             # Running_Flag = True
 
             time1 = datetime.datetime.now()
@@ -73,16 +80,7 @@ def Auto_Run():
 
 
 
-        if Running_Flag == False and int(r.get('daily')) == 0:
-            sleep(richang.base_delay)
-            Running_Flag = True
-            print('执行签到')
-            sleep(richang.base_delay)
-            richang.qiandao()
-            sleep(richang.base_delay)
-            richang.youjian()
-            sleep(richang.base_delay)
-            r.set('daily', 1)
+
 
 
         if Time_list.tm_hour%2==0 and int(r.hget('Task_Queue','weipai'))==1 and Running_Flag == False:
@@ -122,6 +120,22 @@ def Auto_Run():
                 jiejie.jiejie()
             r.hset('Task_Queue', 'yuhun', 0)
 
+        elif Running_Flag == False and int(r.hget('Task_Queue', 'daily')) == 1:
+            # sleep(richang.base_delay)
+            Running_Flag = True
+            print('执行签到、邮件、每日1/50黑蛋')
+            r.hset('Task_Queue', 'daily', 0)
+            sleep(richang.base_delay)
+            richang.qiandao()
+            sleep(richang.base_delay)
+            richang.youjian()
+            sleep(richang.base_delay)
+            richang.shop_daily()
+            sleep(richang.base_delay)
+
+
+
+
         elif int(r.hget('Task_Queue','fengmo'))==1 and Time_list.tm_hour>=19 \
                 and Time_list.tm_hour<=22 and Running_Flag == False:
             print('执行封魔')
@@ -130,7 +144,7 @@ def Auto_Run():
             FengMo.fengmo()
             r.hset('Task_Queue', 'fengmo', 0)
 
-        elif int(r.hget('Task_Queue','yinjie'))==1 and Time_list.tm_hour>=19 :
+        elif int(r.hget('Task_Queue','yinjie'))==1 and Time_list.tm_hour>=19  and Time_list.tm_hour<=21 :
             print('执行阴界')
             Running_Flag = True
 
@@ -141,7 +155,7 @@ def Auto_Run():
             print('领取花合战每日')
             Running_Flag = True
 
-            base.huahezhan()
+            Func.richang.huahezhan()
             r.hset('Task_Queue', 'huahe', 0)
 
         elif int(r.hget('Task_Queue','liaojinbi'))==1 and Running_Flag == False :
@@ -150,6 +164,15 @@ def Auto_Run():
 
             richang.liao_jinbi()
             r.hset('Task_Queue', 'liaojinbi', 0)
+        elif int(r.hget('Huodong','flag'))==1 \
+                and Running_Flag == False \
+                and int(r.hget('Huodong','finish')) \
+                < int(r.hget('Huodong', 'number')):
+            print('活动战斗')
+            Running_Flag = True
+            huodong.huodong()
+
+
 
 
 
@@ -166,7 +189,7 @@ def Auto_Run():
         #     base.huahezhan()
     except:
         print('线程异常，请检查')
-        r = redis.StrictRedis(host='localhost', port=6379, db=0)
+        r = base.r
         error_flag = int(r.get('ERROR_FLAG'))
         error_str ='异常记录：'+str(time.asctime())+'\n'+ traceback.format_exc()
         error_flag += 1

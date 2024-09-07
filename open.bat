@@ -1,1 +1,1 @@
-start /d"D:\1.nox\Nox\bin\" Nox.exe -clone:Nox_1
+start "C:\Program Files\BlueStacks_nxt\HD-Player.exe" --instance Pie64

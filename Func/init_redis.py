@@ -1,10 +1,60 @@
-import redis
+import redis,json
+from Func import base
+with open("./Redis_Info.txt", "r") as f:  # 打开文件
+    data = f.read()  # 读取文件
+    print(data)
+Redis_Info = json.loads(data)
 
+r = redis.StrictRedis(host=Redis_Info[0], port=Redis_Info[1], db=Redis_Info[2])
 def Check_Redis():
     try:
-        r = redis.StrictRedis(host='localhost', port=6379, db=0)
-        a = r.get('base_delay').decode('utf-8')
-        print(a)
+        init_flag = False
+        key_list = [
+            'base_delay',
+            'ERROR_FLAG',
+            'log_fight',
+            'Server_Switch',
+            'Digui_Switch',
+            'Jiyang_Flag',
+            'Speed_Flag',
+            'Task_List',
+            'Simulator_Switch'
+        ]
+        hash_key_list = {
+            'Task_Flag':[
+                'fengmo',
+                'yinjie',
+                'yuhun',
+                'fudai',
+                'jiejie',
+            ],
+            'Task_Queue':[
+                'yinjie',
+                'weipai',
+                'jiejie',
+                'digui',
+                'yuhun',
+                'fengmo',
+                'liaojinbi',
+                'huahe',
+                'daily'
+            ],
+            'Taigu_Sum':['4','5','6'],
+            'Huodong':[
+                'flag',
+                'time',
+                'number',
+                'finish'
+            ]
+        }
+        for key in key_list:
+            if not r.exists(key):init_flag = True
+        for hash in hash_key_list:
+            for key in hash_key_list[hash]:
+                if not r.hexists(hash,key):init_flag = True
+        if init_flag :
+            raise Exception('Redis字段异常，初始化Redis')
+
     except:
         print('初始化Redis数据库')
 
@@ -16,6 +66,7 @@ def Check_Redis():
         r.hset('Task_Flag', 'yinjie', 0)
         r.hset('Task_Flag', 'yuhun', 0)
         r.hset('Task_Flag', 'fudai', 0)
+        r.hset('Task_Flag', 'jiejie', 0)
 
         r.set('ERROR_FLAG',0)
 
@@ -36,7 +87,7 @@ def Check_Redis():
 
         r.lpush('log_fight_his', 0)
 
-        r.set('daily', 0)
+        # r.set('daily', 0)
 
         r.hset('Task_Queue', 'yinjie', 0)
         r.hset('Task_Queue', 'weipai', 0)
@@ -46,10 +97,16 @@ def Check_Redis():
         r.hset('Task_Queue', 'fengmo', 0)
         r.hset('Task_Queue', 'liaojinbi', 0)
         r.hset('Task_Queue', 'huahe', 0)
+        r.hset('Task_Queue', 'daily', 0)
 
         r.hset('Taigu_Sum', '4', 0)
         r.hset('Taigu_Sum', '5', 0)
         r.hset('Taigu_Sum', '6', 0)
+
+        r.hset('Huodong', 'flag', 0)
+        r.hset('Huodong', 'time', 0)
+        r.hset('Huodong', 'number', 0)
+        r.hset('Huodong', 'finish', 0)
 
 
 

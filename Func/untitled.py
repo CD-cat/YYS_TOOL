@@ -5,14 +5,14 @@ from Func.base import *
 import adb
 from Func.point_zb import *
 import os
-from Func import richang
+from Func import richang,base
 import json,redis
 
 
 # 关闭其他应用程序
         # pro_name:将要关闭的程序
 
-r = redis.StrictRedis(host='localhost', port=6379, db=0)
+r = base.r
 base_delay = float(r.get('base_delay').decode('utf-8'))
 def end_program(pro_name):
     os.system('%s%s' % ("taskkill /F /IM ", pro_name))
@@ -34,7 +34,7 @@ def check_once():
     # adb.device_check()
     if key == bytes():
         print(key)
-        end_program('Nox.exe')
+        # end_program('Nox.exe')
         pass
     else:
         # sleep(20)
@@ -46,7 +46,16 @@ def openMobil():
     # os.popen(r'.D:\0.project\5.YYS_Tool\open.bat')
     # open('./open.bat')
     # cmd = 'cmd.exe d:/start.bat'
-    p = subprocess.Popen("cmd.exe /c" + "D:/0.project/5.YYS_Tool/open.bat", stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+
+    directory = 'YYS_YOOL'
+    filename = 'open.bat'
+    current_path = os.getcwd()
+    absolute_path = os.path.join(current_path,  filename)
+    print(absolute_path)
+
+    # abs_path = os.path.abspath('../open.bat')
+    # print(abs_path)
+    p = subprocess.Popen("cmd.exe /c" + absolute_path, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     curline = p.stdout.readline()
     while (curline != b''):
         print(curline)
@@ -65,13 +74,23 @@ def openMobil():
         else:
             sleep(20)
             break
+    r.set('ERROR_FLAG', 0)
     open_YYS()
 
 def open_YYS():
-    YYS_List = ['YYS_WY','YYS_B']
-    point = keep_find(YYS_List[int(r.get('Server_Switch'))])
+    YYS_List = [
+        ['YYS_WY','YYS_B','YYS_WY'],    #夜神
+        ['YYS_WY_LD','YYS_WY_LD','YYS_WY_LD'],      #雷电
+        ['YYS_WY_BS', 'YYS_WY_BS','YYS_WY_BS'],     #蓝叠BlueStacks
+        ['YYS_WY', 'YYS_WY','YYS_WY']      #待定
+        ]
+    point = keep_find(YYS_List[int(r.get('Simulator_Switch'))][int(r.get('Server_Switch'))])
     adb.click(*point)
     sleep(base_delay*12)
+    entry_YYS()
+
+
+def entry_YYS():
     point,picname = keep_find_multiple_slow(['8+','New_Huodong','Sys_Restart'])#多目标检索，差游戏公告
     if picname == 'New_Huodong':
         adb.click(*Btn_exit_Gonggao)
@@ -99,13 +118,13 @@ def open_YYS():
     #     data = f.read()  # 读取文件
     #     print(data)
     # fight_log = json.loads(data)
-    daily_flag = int(r.get('daily'))
-    if daily_flag == 0 :
-        r.set('daily',1)
+    daily_flag = int(r.hget('Task_Queue', 'daily'))
+    if daily_flag == 1 :
         richang.qiandao()
         sleep(base_delay)
         richang.youjian()
         sleep(base_delay)
+        r.hset('Task_Queue', 'daily', 0)
     # point = adb.match('qiandao')
     # if point != None:
     #     richang.qiandao()

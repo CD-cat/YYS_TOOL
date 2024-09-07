@@ -1,7 +1,7 @@
 import adb
 from time import sleep
-from Func.base import keep_find,keep_find_slow, keep_find_multiple
-from Func import base,GetIn,untitled
+from Func.base import keep_find, keep_find_slow, keep_find_multiple, base_delay
+from Func import base,GetIn,untitled,base
 from Func.point_zb import *
 import json,time
 import redis
@@ -9,8 +9,9 @@ import redis
 # with open("./data/game_data/base_arg.txt", "r") as f:  # 打开文件
 #     data = f.read()  # 读取文件
 #     base_arg = json.loads(data)
+from Func.point_zb import Btn_Huahezhan, main_juanzhou, Btn_Back, Btn_Huahezhan_Renwu
 
-r = redis.StrictRedis(host='localhost', port=6379, db=0)
+r = base.r
 base_delay = float(r.get('base_delay').decode('utf-8'))
 debug = True
 # debug = False
@@ -23,6 +24,38 @@ def test ():
     # key = adb.adb('shell pm list packages')
     print(key)
     # r.close
+#每日1/50黑蛋
+def shop_daily():
+    while True:
+
+        point = adb.match('SSL_main')
+        if point != None:
+            adb.click(*Btn_Shop)
+            break
+        else:
+            adb.click(*main_juanzhou)  # 处理主界面挂机太久需要点返回的情况
+            point = adb.match('SSL_main')
+            if point != None:
+                adb.click(*Btn_Shop)
+                break
+            else:
+                adb.click(*Btn_Back)
+                pass
+        sleep(base_delay)
+    point = keep_find('Shop_Libao')
+    adb.click(*point)
+    sleep(base_delay*3)
+    point = adb.match('Shop_Libao_Free')
+    if point != None:
+        adb.click(*point)
+        sleep(base_delay)
+        adb.click(*tiaozhan)
+        sleep(base_delay)
+    adb.click(*Btn_Back)
+    sleep(base_delay)
+    adb.click(*Btn_Back)
+    sleep(base_delay)
+
 
 #阴界之门
 def yinjie():
@@ -133,30 +166,32 @@ def jiyang():
         adb.click(*Btn_Jiejie_Yucheng)
         sleep(base_delay)
         point = adb.match('YYL_Jiejie_Yucheng')
-        if point != None: break
+        if point != None:break
     adb.click(*Btn_Jiejie_Jiyang)
-    point, picname = keep_find_multiple(['jiyang_jinru', 'jiyang_chakan'])
+    point,picname =keep_find_multiple(['jiyang_jinru','jiyang_chakan'])
     if picname == 'jiyang_chakan':
         # flag = False
         adb.click(*tiaozhan)
         back_flag = 2
         sleep(base_delay)
         adb.click(*Btn_Back)
+
     else:
-        pic_list = ['jiejieka_taigu_6', 'jiejieka_taigu_5', 'jiejieka_taigu_4']
-        ac_list = [0.93, 0.99, 0.97]
+
+        pic_list = ['jiejieka_taigu_6','jiejieka_taigu_5','jiejieka_taigu_4']
+        ac_list = [0.93,0.96,0.97]
         flag = False
         for i in range(len(pic_list)):
             for j in range(20):
                 point = adb.match(pic_list[i], ac_list[i])  # 六星太古
                 if point != None:
                     flag = not flag
-                    taigu_flag = 6 - i
+                    taigu_flag = 6-i
                     break
                 adb.swipe(560, 825, 560, 715, 15)
                 adb.click(560, 825)
                 sleep(base_delay)
-            if flag: break
+            if flag:break
             adb.click(*tiaozhan)
             sleep(base_delay)
             adb.click(*Btn_Jiejie_Jiyang)
@@ -167,7 +202,7 @@ def jiyang():
             adb.click(*point)
             sleep(base_delay)
             keep_find('Flag_Shishen_yucheng')
-            adb.click(*ZB_SSL_Kapian[0])
+            adb.click(*ZB_SSL_Kapian[5])
             point = keep_find('Jiyang_Confirm')
             adb.click(*point)
             back_flag = 1
@@ -180,12 +215,75 @@ def jiyang():
             adb.click(*tiaozhan)
             sleep(base_delay)
             adb.click(*Btn_Back)
+
+        #
+        # for i in range(20):
+        #     point = adb.match('jiejieka_taigu_6', 0.93)  # 六星太古
+        #     if point != None:
+        #         flag = not flag
+        #         taigu_flag = 6
+        #     if flag:
+        #         point = adb.match('jiejieka_taigu_5',0.98)#五星太鼓
+        #         if point != None:
+        #             taigu_flag = 5
+        #             flag = not flag
+        #     if flag:
+        #         point = adb.match('jiejieka_taigu_4',0.98)#四星太古
+        #         if point != None:
+        #             flag = not flag
+        #             taigu_flag = 4
+        #     if flag:
+        #         #下滑翻页循环
+        #         adb.swipe(560, 825, 560, 715, 15)
+        #         adb.click(560, 825)
+        #         pass
+        #     else:
+        #         adb.click(*point)
+        #         point = keep_find('jiyang_jinru')
+        #         adb.click(*point)
+        #         sleep(base_delay)
+        #         keep_find('Flag_Shishen_yucheng')
+        #         adb.click(*ZB_SSL_Kapian[0])
+        #         point = keep_find('Jiyang_Confirm')
+        #         adb.click(*point)
+        #         back_flag = 1
+        #         keep_find('Flag_Shishen_yucheng')
+        #         adb.click(*Btn_Back)
+        #         sleep(base_delay * 2)
+        #         adb.click(*Btn_Back)
+        #         break
+        #     if i == 19:
+        #         adb.click(*tiaozhan)
+        #         back_flag = 3
+        #         sleep(base_delay)
+        #         adb.click(*Btn_Back)
+
+
     sleep(base_delay * 2)
     adb.click(*Btn_Back)
     keep_find('YYL_Jiejie')
     adb.click(*Btn_Back)
-    return back_flag, taigu_flag
-
+    return back_flag,taigu_flag
+        # for i in ZB_Jiejie_Jiyang:
+        #     adb.click(*i)
+        #     sleep(base_delay)
+        #     point = adb.match('jiejieka_taigu_5')#六星太古
+        #     if point != None:
+        #         flag = not flag
+        #     if flag:
+        #         point = adb.match('jiejieka_taigu_5')#五星太鼓
+        #         if point != None:
+        #             flag = not flag
+        #     if flag:
+        #         point = adb.match('jiejieka_taigu_5')#四星太古
+        #         if point != None:
+        #             flag = not flag
+        #     if flag:
+        #         #下一轮循环
+        #         pass
+        #     else:
+        #
+        #         keep_find('jiyang_jinru')
 
 
 #委派
@@ -271,12 +369,12 @@ def qiandao():
 
     keep_find_multiple(['jieqian','jieqian_2'])
     adb.click(*qiandao_exit)
+    if int (r.hget('Task_Flag','fudai')) == 1:
+        point = keep_find('qiandao_fudai')
+        adb.click(*point)
 
-    point = keep_find('qiandao_fudai')
-    adb.click(*point)
-
-    point = keep_find('jiangli')
-    adb.click(*tansuo)
+        point = keep_find('jiangli')
+        adb.click(*tansuo)
 
 #邮件
 def youjian():
@@ -437,4 +535,31 @@ def hunshui(time,need = 30):
 
     if debug:print('战斗结束')
 
-#斗技
+
+def huahezhan():
+    while True:
+
+        point = adb.match('SSL_main')
+        if point != None:
+            adb.click(*Btn_Huahezhan)
+            break
+        else:
+            adb.click(*main_juanzhou)       #处理主界面挂机太久需要点返回的情况
+            point = adb.match('SSL_main')
+            if point != None:
+                adb.click(*Btn_Huahezhan)
+                break
+            else:
+                adb.click(*Btn_Back)
+                pass
+        sleep(base_delay)
+    sleep(base_delay*2)
+    adb.click(*Btn_Huahezhan_Renwu)
+    point = adb.match('Huahezhan_Lingqu')
+    if point != None:
+        adb.click(*point)
+        sleep(base_delay)
+        adb.click(*point)
+    else:pass
+    sleep(base_delay)
+    adb.click(*Btn_Back)
